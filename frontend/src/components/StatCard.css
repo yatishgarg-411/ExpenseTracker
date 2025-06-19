@@ -1,0 +1,87 @@
+.stat-card {
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid #f3f4f6;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.12);
+  }
+  
+  .stat-card-content {
+    padding: 1.5rem;
+  }
+  
+  .stat-card-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-box {
+    display: inline-flex;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+  }
+  
+  .stat-details {
+    margin-left: 1.25rem;
+    flex: 1;
+  }
+  
+  .stat-title {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #111827;
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .trend {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  
+  .trend.positive {
+    color: #059669;
+  }
+  
+  .trend.negative {
+    color: #dc2626;
+  }
+  
+  .bg-indigo {
+    background: linear-gradient(to right, #6366f1, #4f46e5);
+  }
+  
+  .bg-emerald {
+    background: linear-gradient(to right, #10b981, #059669);
+  }
+  
+  .bg-red {
+    background: linear-gradient(to right, #ef4444, #dc2626);
+  }
+  
+  .bg-amber {
+    background: linear-gradient(to right, #f59e0b, #d97706);
+  }
+  

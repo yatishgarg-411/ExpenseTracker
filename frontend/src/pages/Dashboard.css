@@ -1,0 +1,47 @@
+/* Dashboard.css */
+.dashboard-container{
+    
+        margin: 2rem; /* equivalent to space-y-8 */
+      
+      
+}
+.dashboard-header {
+    background: linear-gradient(to right, #6366f1, #4f46e5); /* from-indigo-500 to-indigo-600 */
+    border-radius: 1rem; /* rounded-2xl */
+    padding: 2rem; /* p-8 */
+    color: white; /* text-white */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
+  }
+  
+  .dashboard-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: bold; /* font-bold */
+    margin-bottom: 0.5rem; /* mb-2 */
+  }
+  
+  .dashboard-subtitle {
+    color: #c7d2fe; /* text-indigo-100 */
+    font-size: 1.125rem; /* text-lg */
+  }
+  
+
+
+  .statcard-grid{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* default for mobile */
+    gap: 1.5rem; /* same as Tailwind's gap-6 */
+  }
+  
+  @media (min-width: 768px) {
+    .statcard-grid {
+      grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .statcard-grid {
+      grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+    }
+  }
+  
