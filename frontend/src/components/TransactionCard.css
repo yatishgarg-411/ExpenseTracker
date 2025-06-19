@@ -1,0 +1,118 @@
+.transaction-card {
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
+    padding: 1.5rem;
+  }
+  
+  .transaction-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .transaction-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .transaction-left {
+    flex: 1;
+  }
+  
+  .transaction-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+  }
+  
+  .dot-income {
+    background-color: #10b981; /* emerald-500 */
+  }
+  
+  .dot-expense {
+    background-color: #ef4444; /* red-500 */
+  }
+  
+  .transaction-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .transaction-category {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .transaction-date {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+  }
+  
+  .transaction-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .transaction-amount {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .amount-income {
+    color: #059669; /* emerald-600 */
+  }
+  
+  .amount-expense {
+    color: #dc2626; /* red-600 */
+  }
+  
+  .transaction-actions {
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .transaction-card:hover .transaction-actions {
+    opacity: 1;
+  }
+  
+  .action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 0;
+  }
+  
+  .edit-btn {
+    color: #9ca3af;
+  }
+  
+  .edit-btn:hover {
+    color: #4f46e5; /* indigo-600 */
+  }
+  
+  .delete-btn {
+    color: #9ca3af;
+  }
+  
+  .delete-btn:hover {
+    color: #dc2626; /* red-600 */
+  }
+  
+  .icon {
+    width: 16px;
+    height: 16px;
+  }

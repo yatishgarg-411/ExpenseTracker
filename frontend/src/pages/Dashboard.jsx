@@ -1,9 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./Dashboard.css";
-import { Wallet, TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
+import { Wallet, TrendingUp, TrendingDown, DollarSign} from 'lucide-react';
 import StatCard from '../components/StatCard';
+import TransactionCard from '../components/TransactionCard';
 
 const Dashboard = () => {
+
+    const recentTransactions = [
+        
+    ];
+
+
     return (
         <div className='dashboard-container'>
 
@@ -38,6 +46,40 @@ const Dashboard = () => {
                     color="amber"
                 />
             </div>
+
+            <div className="quick-actions-container">
+                <h2 className="quick-actions-title">Quick Actions</h2>
+                <div className="quick-actions-grid">
+                    <button className="quick-action-btn emerald">Add Transaction</button>
+                    <button className="quick-action-btn indigo">View All Transactions</button>
+                    <button className="quick-action-btn amber">View Analytics</button>
+                </div>
+            </div>
+
+            <div className="recent-transactions">
+                <div className="transactions-header">
+                    <h2>Recent Transactions</h2>
+                    <Link to="/transactions" className="view-all-link">
+                        View all
+                    </Link>
+                </div>
+
+                {recentTransactions.length === 0 ? (
+                    <div className="no-transactions">
+                        <div className="icon-placeholder">
+                            <DollarSign className="icon-large" />
+                        </div>
+                        <p className="no-transactions-text">No transactions yet</p>
+                    </div>
+                ) : (
+                    <div className="transactions-list">
+                        {recentTransactions.map((transaction) => (
+                            <TransactionCard key={transaction.id} transaction={transaction} />
+                        ))}
+                    </div>
+                )}
+            </div>
+
 
         </div>
     )
