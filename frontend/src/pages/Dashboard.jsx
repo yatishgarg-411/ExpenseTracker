@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./Dashboard.css";
 import { Wallet, TrendingUp, TrendingDown, DollarSign} from 'lucide-react';
 import StatCard from '../components/StatCard';
@@ -10,6 +10,8 @@ const Dashboard = () => {
     const recentTransactions = [
         
     ];
+
+const navigate = useNavigate();
 
 
     return (
@@ -50,8 +52,8 @@ const Dashboard = () => {
             <div className="quick-actions-container">
                 <h2 className="quick-actions-title">Quick Actions</h2>
                 <div className="quick-actions-grid">
-                    <button className="quick-action-btn emerald">Add Transaction</button>
-                    <button className="quick-action-btn indigo">View All Transactions</button>
+                    <button className="quick-action-btn emerald" onClick={()=>navigate("/add-transaction")}>Add Transaction</button>
+                    <button className="quick-action-btn indigo" onClick={()=>navigate("/transactions")}>View All Transactions</button>
                     <button className="quick-action-btn amber">View Analytics</button>
                 </div>
             </div>

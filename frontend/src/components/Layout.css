@@ -1,0 +1,212 @@
+/* ========== Layout Base ========== */
+
+.layout-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ========== Sidebar (Desktop) ========== */
+  
+  .layout-root .sidebar {
+    display: none;
+  }
+  
+  @media (min-width: 1024px) {
+    .layout-root .sidebar {
+      display: flex;
+      flex-direction: column;
+      width: 16rem;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      background-color: white;
+      border-right: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .layout-root .sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.25rem 0;
+    overflow-y: auto;
+  }
+  
+  .layout-root .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .layout-root .app-title {
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #111827;
+  }
+  
+  .layout-root .wallet-icon1 {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #4f46e5;
+  }
+  
+  /* ========== Navigation (Desktop) ========== */
+  
+  .layout-root .sidebar-nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0 0;
+  }
+  
+  .layout-root .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .layout-root .nav-link:hover {
+    background-color: #f9fafb;
+    color: #4f46e5;
+  }
+  
+  .layout-root .nav-link.active {
+    background-color: #eef2ff;
+    border-right: 2px solid #4f46e5;
+    color: #4f46e5;
+  }
+  
+  /* Scoped icons inside nav links */
+  .layout-root .nav-link .icon,
+  .layout-root .logout-btn .icon,
+  .layout-root .mobile-nav-link .icon {
+    margin-right: 0.75rem;
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    color: #9ca3af;
+    transition: color 0.2s;
+  }
+  
+  .layout-root .nav-link:hover .icon,
+  .layout-root .nav-link.active .icon,
+  .layout-root .mobile-nav-link:hover .icon,
+  .layout-root .mobile-nav-link.active .icon {
+    color: #4f46e5;
+  }
+  
+  /* ========== Logout Button ========== */
+  
+  .layout-root .logout-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    border-radius: 0.375rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .layout-root .logout-btn:hover {
+    background-color: #fef2f2;
+    color: #b91c1c;
+  }
+  
+  .layout-root .logout-btn:hover .logout-icon {
+    color: #ef4444;
+  }
+  
+  /* ========== Mobile Header ========== */
+  
+  .layout-root .mobile-header {
+    display: block;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .layout-root .mobile-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+  }
+  
+  .layout-root .mobile-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .layout-root .menu-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+  }
+  
+  /* ========== Mobile Menu ========== */
+  
+  .layout-root .mobile-menu {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .layout-root .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    color: #374151;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .layout-root .mobile-nav-link:hover {
+    background-color: #f9fafb;
+    color: #4f46e5;
+  }
+  
+  .layout-root .mobile-nav-link.active {
+    background-color: #eef2ff;
+    color: #4f46e5;
+  }
+  
+  /* ========== Main Content ========== */
+  
+  .layout-root .main-content {
+    flex-grow: 1;
+  }
+  
+  @media (min-width: 1024px) {
+    .layout-root .main-content {
+      padding-left: 16rem;
+    }
+  
+    .layout-root .mobile-header,
+    .layout-root .mobile-menu {
+      display: none;
+    }
+  }
+  
+  .layout-root .content-container {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  
