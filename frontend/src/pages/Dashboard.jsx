@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import "./Dashboard.css";
 import { Wallet, TrendingUp, TrendingDown, DollarSign} from 'lucide-react';
 import StatCard from '../components/StatCard';
 import TransactionCard from '../components/TransactionCard';
+import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
 
 const Dashboard = () => {
 
@@ -13,12 +15,34 @@ const Dashboard = () => {
 
 const navigate = useNavigate();
 
+const token=localStorage.getItem('token');
+const [userName, setUserName]=useState('');
+
+
+useEffect(()=>{
+    if(token){
+        fetchUsername();
+    }
+},[])
+
+
+const fetchUsername = async() => {
+    try{
+        const decode=jwtDecode(token);
+        const useremail=decode.email;
+        const res=await axios.get(`http://localhost:8000/user/login/${useremail}`);
+        setUserName(res.data.name);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
     return (
         <div className='dashboard-container'>
 
             <div className="dashboard-header">
-                <h1 className="dashboard-title">Welcome back, Yatish! 👋</h1>
+                <h1 className="dashboard-title">Welcome back, {userName}! 👋</h1>
                 <p className="dashboard-subtitle">Here's your financial overview for today</p>
             </div>
 
