@@ -1,8 +1,9 @@
 import React from 'react';
 import { Edit2, Trash2 } from 'lucide-react';
+import "./TransactionCard.css";
 
 const TransactionCard = ({ transaction }) => {
-  const isIncome = transaction.type === 'income';
+  const isIncome = transaction.type === 'Income';
 
   return (
     <div className="transaction-card">

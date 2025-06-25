@@ -60,7 +60,7 @@ const Layout = ({ children }) => {
             <div className="mobile-header">
                 <div className="mobile-header-inner">
                     <div className="mobile-title">
-                        <Wallet className="icon wallet-icon" />
+                        <Wallet className="icon wallet-icon1" />
                         <span className="app-title">ExpenseTracker</span>
                     </div>
                     <button

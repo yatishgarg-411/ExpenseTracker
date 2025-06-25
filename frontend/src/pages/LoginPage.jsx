@@ -44,7 +44,7 @@ const LoginPage = () => {
       <div className="login-card">
         <div className="login-header">
           <div className="wallet-icon-wrapper">
-            <Wallet className="wallet-icon" />
+            <Wallet className="wallet-icon-login" />
           </div>
           <h2 className="login-title">Welcome back</h2>
           <p className="login-subtitle">

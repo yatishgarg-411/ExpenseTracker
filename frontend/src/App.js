@@ -6,10 +6,12 @@ import AddTransactionPage from './pages/AddTransactionsPage';
 import TransactionPage from './pages/TransactionPage';
 import Layout from './components/Layout';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import { TransactionProvider } from './contexts/TransactionContext';
 
 function App() {
   return (
-    <BrowserRouter>
+    <TransactionProvider>
+      <BrowserRouter>
       <Routes>
         <Route path="/" element = {<LoginPage/>}></Route>
         <Route path="/signup" element = {<SignUp />}></Route>
@@ -18,6 +20,8 @@ function App() {
         <Route path="/transactions" element ={<Layout><TransactionPage/></Layout>}></Route>
       </Routes>
     </BrowserRouter>
+    </TransactionProvider>
+    
   );
 }
 

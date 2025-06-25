@@ -1,27 +1,21 @@
-import React from 'react';
+import React,{ useState ,useEffect} from 'react';
 import { Search, Filter, DollarSign } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import './TransactionPage.css';
 import TransactionCard from '../components/TransactionCard'; // Ensure this is a presentational component
+import { useTransaction } from '../contexts/TransactionContext';
 
 const TransactionsPage = () => {
-  const dummyTransactions = [
-    {
-      id: '1',
-      type: 'income',
-      amount: 5000,
-      category: 'Salary',
-      description: 'Monthly Salary',
-      date: '2025-06-01',
-    },
-    {
-      id: '2',
-      type: 'expense',
-      amount: 1200,
-      category: 'Rent',
-      description: 'June Rent',
-      date: '2025-06-05',
-    },
-  ];
+  const {transactionDataList}=useTransaction();
+  const [dummyTransactions,setDummyTransactions]=useState([]);
+  useEffect(() => {
+    console.log(transactionDataList);
+    if (Array.isArray(transactionDataList)) {
+      setDummyTransactions(transactionDataList);
+    } else {
+      setDummyTransactions([]); // fallback to empty
+    }
+  }, [transactionDataList]);
 
   const totalIncome = dummyTransactions
     .filter(t => t.type === 'income')

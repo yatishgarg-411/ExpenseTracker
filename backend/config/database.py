@@ -8,4 +8,5 @@ MONGOURI=os.getenv('MONGOURI')
 client=AsyncIOMotorClient(MONGOURI)
 db=client['ExpenseTracker']
 users_collection=db['users']
+transactions_collection=db['transactions']
 

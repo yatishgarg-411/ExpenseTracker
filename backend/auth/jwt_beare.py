@@ -8,7 +8,7 @@ class JWTBearer(HTTPBearer):
         if credentials:
             try:
                 payload = decode_token(credentials.credentials)
-                return payload["mail"]
+                return payload["email"]
             except:
                 raise HTTPException(status_code=403, detail="Invalid token")
         raise HTTPException(status_code=403, detail="Token missing")

@@ -6,18 +6,18 @@ import StatCard from '../components/StatCard';
 import TransactionCard from '../components/TransactionCard';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
+import { useTransaction } from '../contexts/TransactionContext';
 
 const Dashboard = () => {
 
-    const recentTransactions = [
-        
-    ];
+
 
 const navigate = useNavigate();
 
 const token=localStorage.getItem('token');
 const [userName, setUserName]=useState('');
-
+const {transactionDataList}=useTransaction();
+const recentTransactions = transactionDataList.slice(0, 5);
 
 useEffect(()=>{
     if(token){
@@ -29,14 +29,16 @@ useEffect(()=>{
 const fetchUsername = async() => {
     try{
         const decode=jwtDecode(token);
-        const useremail=decode.email;
-        const res=await axios.get(`http://localhost:8000/user/login/${useremail}`);
+        const email =decode.email;
+        const res=await axios.get(`http://localhost:8000/user/login/${email}`);
         setUserName(res.data.name);
     }
     catch(error){
         console.log(error);
     }
 }
+
+
 
     return (
         <div className='dashboard-container'>
@@ -78,6 +80,7 @@ const fetchUsername = async() => {
                 <div className="quick-actions-grid">
                     <button className="quick-action-btn emerald" onClick={()=>navigate("/add-transaction")}>Add Transaction</button>
                     <button className="quick-action-btn indigo" onClick={()=>navigate("/transactions")}>View All Transactions</button>
+                    
                     <button className="quick-action-btn amber">View Analytics</button>
                 </div>
             </div>
@@ -105,6 +108,7 @@ const fetchUsername = async() => {
                     </div>
                 )}
             </div>
+
 
 
         </div>

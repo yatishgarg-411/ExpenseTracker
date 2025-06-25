@@ -13,7 +13,7 @@ const StatCard = ({ title, value, Icon, color, trend }) => {
       <div className="stat-card-content">
         <div className="stat-card-header">
           <div className={`icon-box ${bgColorClasses[color]}`}>
-          <Icon className="icon" stroke="white" size={24} />
+          <Icon className="icon-statcard" stroke="white" size={24} />
           </div>
           <div className="stat-details">
             <p className="stat-title">{title}</p>
