@@ -14,14 +14,17 @@ const Dashboard = () => {
 
 const navigate = useNavigate();
 
+const {fetchTransactions}=useTransaction();
 const token=localStorage.getItem('token');
 const [userName, setUserName]=useState('');
 const {transactionDataList}=useTransaction();
 const recentTransactions = transactionDataList.slice(0, 5);
+const {balance,totalIncome,totalExpenses,lastMonthNet}=useTransaction();
 
 useEffect(()=>{
     if(token){
         fetchUsername();
+        fetchTransactions();
     }
 },[])
 
@@ -51,25 +54,25 @@ const fetchUsername = async() => {
             <div className="statcard-grid">
                 <StatCard
                     title="Current Balance"
-                    value="500"
+                    value={balance}
                     Icon={Wallet}
                     color="indigo"
                 />
                 <StatCard
                     title="Total Income"
-                    value="500"
+                    value={totalIncome}
                     Icon={TrendingUp}
                     color="emerald"
                 />
                 <StatCard
                     title="Total Expenses"
-                    value="500"
+                    value={totalExpenses}
                     Icon={TrendingDown}
                     color="red"
                 />
                 <StatCard
                     title="This Month"
-                    value="500"
+                    value={lastMonthNet}
                     Icon={DollarSign}
                     color="amber"
                 />
@@ -81,7 +84,9 @@ const fetchUsername = async() => {
                     <button className="quick-action-btn emerald" onClick={()=>navigate("/add-transaction")}>Add Transaction</button>
                     <button className="quick-action-btn indigo" onClick={()=>navigate("/transactions")}>View All Transactions</button>
                     
-                    <button className="quick-action-btn amber">View Analytics</button>
+                    <button className="quick-action-btn amber" onClick={()=>navigate(
+                        '/analytics'
+                    )}> View Analytics</button>
                 </div>
             </div>
 

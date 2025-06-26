@@ -1,8 +1,9 @@
 from fastapi import APIRouter,Depends,HTTPException
-from model.transaction import transaction
+from model.transaction import transaction,updateTransaction
 from auth.jwt_beare import JWTBearer
-from typing import List
+from typing import List,Optional
 from bson import ObjectId
+
 from config.database import transactions_collection
 router=APIRouter()
 
@@ -34,6 +35,24 @@ async def delete_transaction(id:str):
     else:
         raise HTTPException(status_code=400, detail="Transaction deletion failed or transaction not found")
     
+@router.get('/transaction/{id}')
+async def get_Transaction_byId(id:str):
+    existing = await transactions_collection.find_one({"_id": ObjectId(id)})
+    if not existing:
+        raise HTTPException(status_code=404, detail="Transaction Does not exist")
+    existing["_id"] = str(existing["_id"])  # Convert ObjectId to string
+    return existing
 
+@router.patch('/transaction/update/{id}')
+async def update_transaction(id:str,transaction:updateTransaction):
+    existing = await transactions_collection.find_one({"_id":ObjectId(id)})
+    if not existing:
+        raise HTTPException(status_code=404,detail="Transaction Doesn't exist")
+    updatedTransaction={k:v for k,v in transaction.dict().items() if v is not None }
 
-    
+    result = await transactions_collection.update_one(
+        {"_id":ObjectId(id)},
+        {"$set":updatedTransaction}
+    )
+
+    return{"msg":"Transaction Updated Successfully!!"}

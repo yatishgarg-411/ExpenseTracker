@@ -3,8 +3,10 @@ import { Edit2, Trash2 } from 'lucide-react';
 import axios from'axios';
 import { useTransaction } from '../contexts/TransactionContext';
 import "./TransactionCard.css";
+import { useNavigate } from 'react-router-dom';
 
 const TransactionCard = ({ transaction }) => {
+  const navigate= useNavigate();
   const isIncome = transaction.type === 'Income';
   const {fetchTransactions} = useTransaction();
 
@@ -39,10 +41,10 @@ const TransactionCard = ({ transaction }) => {
               {isIncome ? '+' : '-'}${Math.abs(transaction.amount).toFixed(2)}
             </div>
             <div className="transaction-actions">
-              <button className="action-btn edit-btn">
+              <button className="action-btn edit-btn" onClick={() => navigate('/update-transaction', { state: { id: transaction.id } })}>
                 <Edit2 className="icon" />
               </button>
-              <button className="action-btn delete-btn" onClick={()=>deleteTask(transaction.id)}>
+              <button className="action-btn delete-btn" onClick={() => deleteTask(transaction.id)}>
                 <Trash2 className="icon" />
               </button>
             </div>

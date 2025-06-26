@@ -24,6 +24,7 @@ const TransactionsPage = () => {
     .filter(t => t.type === 'Expense')
     .reduce((sum, t) => sum + Math.abs(t.amount), 0);
 
+
   return (
     <div className="transactions-page space-y-6">
       <div className="header-card">
