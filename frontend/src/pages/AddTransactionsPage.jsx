@@ -2,14 +2,17 @@ import React,{useState} from 'react';
 import { DollarSign, Calendar, Tag, FileText, Plus } from 'lucide-react';
 import {useNavigate} from 'react-router-dom';
 import './AddTransactionsPage.css';
+import { useTransaction } from '../contexts/TransactionContext';
 import axios from 'axios';
 
 const AddTransactionPage = () => {
 
   const token = localStorage.getItem('token');
   const navigate=useNavigate();
+  const {fetchTransactions} = useTransaction();
 
   const [transactionData, setTransactionData] = useState({
+    id:'',
     type: 'Income',
     amount: 0,
     category: '',
@@ -33,6 +36,7 @@ const AddTransactionPage = () => {
         }
       });
       alert(res.data.msg);
+      fetchTransactions();
       navigate("/dashboard");
     }catch(error){
       alert(error);

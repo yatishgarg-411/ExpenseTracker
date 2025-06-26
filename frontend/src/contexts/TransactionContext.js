@@ -9,6 +9,7 @@ export const TransactionProvider = ({ children }) => {
 
   const fetchTransactions = async () => {
     try {
+        
       const res = await axios.get("http://localhost:8000/transactions/all", {
         headers: {
           authorization: `Bearer ${token}`,

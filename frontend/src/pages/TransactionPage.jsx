@@ -1,6 +1,5 @@
 import React,{ useState ,useEffect} from 'react';
 import { Search, Filter, DollarSign } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
 import './TransactionPage.css';
 import TransactionCard from '../components/TransactionCard'; // Ensure this is a presentational component
 import { useTransaction } from '../contexts/TransactionContext';
@@ -18,11 +17,11 @@ const TransactionsPage = () => {
   }, [transactionDataList]);
 
   const totalIncome = dummyTransactions
-    .filter(t => t.type === 'income')
+    .filter(t => t.type === 'Income')
     .reduce((sum, t) => sum + t.amount, 0);
 
   const totalExpenses = dummyTransactions
-    .filter(t => t.type === 'expense')
+    .filter(t => t.type === 'Expense')
     .reduce((sum, t) => sum + Math.abs(t.amount), 0);
 
   return (
