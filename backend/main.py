@@ -9,7 +9,8 @@ origins = [
     "http://localhost:3000",
     "https://expense-tracker-indol-theta-22.vercel.app",
     "https://expense-tracker-git-deploy-v1-yatish-gargs-projects.vercel.app",
-    "https://expense-tracker-yatish-gargs-projects.vercel.app"
+    "https://expense-tracker-yatish-gargs-projects.vercel.app",
+    "https://expensetracker-q5np.onrender.com"
 ]
 
 app.add_middleware(
