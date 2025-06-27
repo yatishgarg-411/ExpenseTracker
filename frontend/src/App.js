@@ -10,6 +10,7 @@ import Layout from './components/Layout';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import { TransactionProvider } from './contexts/TransactionContext';
 import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -19,11 +20,11 @@ function App() {
       <Routes>
         <Route path="/" element = {<LoginPage/>}></Route>
         <Route path="/signup" element = {<SignUp />}></Route>
-        <Route path="/dashboard" element={<Layout><Dashboard /></Layout>}></Route>
-        <Route path="/add-transaction" element={<Layout><AddTransactionPage /></Layout>}></Route>
-        <Route path="/transactions" element ={<Layout><TransactionPage/></Layout>}></Route>
-        <Route path="/update-transaction" element={<Layout><UpdateTransaction/></Layout>}></Route>
-        <Route path='/analytics' element={<Layout><AnalyticsPage /></Layout>}></Route>
+        <Route path="/dashboard" element={<ProtectedRoute><Layout><Dashboard /></Layout></ProtectedRoute>}></Route>
+        <Route path="/add-transaction" element={<ProtectedRoute><Layout><AddTransactionPage /></Layout></ProtectedRoute>}></Route>
+        <Route path="/transactions" element ={<ProtectedRoute><Layout><TransactionPage/></Layout></ProtectedRoute>}></Route>
+        <Route path="/update-transaction" element={<ProtectedRoute><Layout><UpdateTransaction/></Layout></ProtectedRoute>}></Route>
+        <Route path='/analytics' element={<ProtectedRoute><Layout><AnalyticsPage /></Layout></ProtectedRoute>}></Route>
       </Routes>
     </BrowserRouter>
     </TransactionProvider>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Home, Plus,List, BarChart3, LogOut, Menu, X, Wallet } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 import './Layout.css'; // Import the custom CSS
 
 const Layout = ({ children }) => {
@@ -8,9 +9,10 @@ const Layout = ({ children }) => {
     const location = useLocation();
     const navigate = useNavigate();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+    const {setToken}=useAuth();
     const handleLogout = () => {
         // logout();
+        setToken('');
         navigate('/');
     };
 
