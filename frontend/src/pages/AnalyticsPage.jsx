@@ -128,19 +128,19 @@ const AnalyticsPage = () => {
         {[
           {
             label: 'Total Income',
-            value: `$${analytics.totalIncome.toFixed(2)}`,
+            value: `₹${analytics.totalIncome.toFixed(2)}`,
             icon: <TrendingUp color="#059669" size={24} />,
             bg: '#d1fae5',
           },
           {
             label: 'Total Expenses',
-            value: `$${analytics.totalExpenses.toFixed(2)}`,
+            value: `₹${analytics.totalExpenses.toFixed(2)}`,
             icon: <TrendingDown color="#dc2626" size={24} />,
             bg: '#fee2e2',
           },
           {
             label: 'Net Balance',
-            value: `$${analytics.currentBalance.toFixed(2)}`,
+            value: `₹${analytics.currentBalance.toFixed(2)}`,
             icon: (
               <TrendingUp
                 color={analytics.currentBalance >= 0 ? '#4f46e5' : '#f59e0b'}
@@ -214,15 +214,16 @@ const AnalyticsPage = () => {
                     outerRadius={100}
                     fill="#8884d8"
                     dataKey="amount"
+                    nameKey='category'
                   >
                     {analytics.expensesByCategory.map((entry, index) => (
                       <Cell
-                        key={`cell-${index}`}
+                        key={`cell-₹{index}`}
                         fill={COLORS[index % COLORS.length]}
                       />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(value) => [`$${value.toFixed(2)}`, 'Amount']} />
+                  <Tooltip formatter={(value) => [`₹${value.toFixed(2)}`, 'Amount']} />
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
@@ -256,7 +257,7 @@ const AnalyticsPage = () => {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="month" />
                   <YAxis />
-                  <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
+                  <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
                   <Legend />
                   <Bar
                     dataKey="income"

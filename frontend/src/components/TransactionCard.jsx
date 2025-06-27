@@ -38,7 +38,7 @@ const TransactionCard = ({ transaction }) => {
           </div>
           <div className="transaction-right">
             <div className={`transaction-amount ${isIncome ? 'amount-income' : 'amount-expense'}`}>
-              {isIncome ? '+' : '-'}${Math.abs(transaction.amount).toFixed(2)}
+              {isIncome ? '+' : '-'}₹{Math.abs(transaction.amount).toFixed(2)}
             </div>
             <div className="transaction-actions">
               <button className="action-btn edit-btn" onClick={() => navigate('/update-transaction', { state: { id: transaction.id } })}>

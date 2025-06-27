@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import "./Dashboard.css";
-import { Wallet, TrendingUp, TrendingDown, DollarSign} from 'lucide-react';
+import { Wallet, TrendingUp, TrendingDown, IndianRupee} from 'lucide-react';
 import StatCard from '../components/StatCard';
 import TransactionCard from '../components/TransactionCard';
 import { useAuth } from '../contexts/AuthContext';
@@ -78,7 +78,7 @@ useEffect(()=>{
                 <StatCard
                     title="This Month"
                     value={lastMonthNet}
-                    Icon={DollarSign}
+                    Icon={IndianRupee}
                     color="amber"
                 />
             </div>
@@ -106,7 +106,7 @@ useEffect(()=>{
                 {recentTransactions.length === 0 ? (
                     <div className="no-transactions">
                         <div className="icon-placeholder">
-                            <DollarSign className="icon-large" />
+                            <IndianRupee className="icon-large" />
                         </div>
                         <p className="no-transactions-text">No transactions yet</p>
                     </div>

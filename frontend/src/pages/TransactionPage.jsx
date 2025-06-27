@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Filter, DollarSign, ChevronDown } from 'lucide-react';
+import { Search, Filter, IndianRupee, ChevronDown } from 'lucide-react';
 import './TransactionPage.css';
 import TransactionCard from '../components/TransactionCard';
 import { useTransaction } from '../contexts/TransactionContext';
@@ -68,9 +68,9 @@ const TransactionsPage = () => {
             </p>
           </div>
           <div className="header-totals">
-            <span className="income">Income: ${totalIncome.toFixed(2)}</span>
+            <span className="income">Income: ₹{totalIncome.toFixed(2)}</span>
             <span className="divider">|</span>
-            <span className="expenses">Expenses: ${totalExpenses.toFixed(2)}</span>
+            <span className="expenses">Expenses: ₹{totalExpenses.toFixed(2)}</span>
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@ const TransactionsPage = () => {
       <div className="transactions-list">
         {filteredTransactions.length === 0 ? (
           <div className="empty-state">
-            <DollarSign className="empty-icon" />
+            <IndianRupee className="empty-icon" />
             <h3>No transactions found</h3>
             <p>
               {searchQuery || selectedCategory

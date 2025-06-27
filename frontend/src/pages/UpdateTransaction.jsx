@@ -1,5 +1,5 @@
 import React, { useState , useEffect} from 'react';
-import { DollarSign, Calendar, Tag, FileText, Plus, Pencil } from 'lucide-react';
+import { IndianRupee, Calendar, Tag, FileText, Plus, Pencil } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './AddTransactionsPage.css';
 import { useTransaction } from '../contexts/TransactionContext';
@@ -108,7 +108,7 @@ const UpdateTransaction = () => {
                         <div className="form-group">
                             <label className="label">Amount</label>
                             <div className="input-icon">
-                                <DollarSign className="forms-icon" />
+                                <IndianRupee className="forms-icon" />
                                 <input
                                     type="number"
                                     placeholder="0.00"
