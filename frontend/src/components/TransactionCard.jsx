@@ -13,7 +13,7 @@ const TransactionCard = ({ transaction }) => {
 
   const deleteTask = async (id) => {
     try{
-      const res = await axios.delete(`http://localhost:8000/transaction/delete/${id}`);
+      const res = await axios.delete(`${process.env.REACT_APP_API_URL}/transaction/delete/${id}`);
       alert(res.data.msg);
       fetchTransactions();
     }catch(error){

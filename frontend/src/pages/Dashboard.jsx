@@ -33,7 +33,7 @@ const fetchUsername = async() => {
     try{
         const decode=jwtDecode(token);
         const email =decode.email;
-        const res=await axios.get(`http://localhost:8000/user/login/${email}`);
+        const res=await axios.get(`${process.env.REACT_APP_API_URL}/user/login/${email}`);
         setUserName(res.data.name);
     }
     catch(error){

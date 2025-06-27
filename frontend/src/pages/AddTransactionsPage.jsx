@@ -30,7 +30,7 @@ const AddTransactionPage = () => {
   const addTransaction=async (e)=>{
     e.preventDefault();
     try{
-      const res=await axios.post(`http://localhost:8000/transaction/add`,transactionData,{
+      const res=await axios.post(`${process.env.REACT_APP_API_URL}/transaction/add`,transactionData,{
         headers: {
           Authorization:`Bearer ${token}`,
         }

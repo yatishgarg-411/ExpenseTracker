@@ -45,7 +45,7 @@ const SignUp = () => {
       confirmpassword: ''
     })
     try {
-      const res = await axios.post(`http://localhost:8000/user/signup`, payload);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/user/signup`, payload);
       alert(res.data.msg);
       setFormData({
         name: '',

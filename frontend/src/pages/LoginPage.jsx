@@ -31,7 +31,7 @@ const LoginPage = () => {
     })
     e.preventDefault();
     try{
-      const res= await axios.post(`http://localhost:8000/user/login`,loginForm);
+      const res= await axios.post(`${process.env.REACT_APP_API_URL}/user/login`,loginForm);
       setToken(res.data.token)
       alert(res.data.msg);
       navigate('/dashboard');

@@ -24,7 +24,7 @@ const UpdateTransaction = () => {
 
     const fetchData= async ()=>{
         try{
-            const res= await axios.get(`http://localhost:8000/transaction/${id}`);
+            const res= await axios.get(`${process.env.REACT_APP_API_URL}/${id}`);
             setTransactionData(res.data);
         }catch(error){
             alert(error)
@@ -44,7 +44,7 @@ const UpdateTransaction = () => {
     const updateTransaction = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.patch(`http://localhost:8000/transaction/update/${id}`, transactionData, {
+            const res = await axios.patch(`${process.env.REACT_APP_API_URL}/transaction/update/${id}`, transactionData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
