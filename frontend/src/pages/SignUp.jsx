@@ -38,6 +38,12 @@ const SignUp = () => {
       alert("Passwords donot match");
       return;
     }
+    setFormData({
+      name: '',
+      email: '',
+      password: '',
+      confirmpassword: ''
+    })
     try {
       const res = await axios.post(`http://localhost:8000/user/signup`, payload);
       alert(res.data.msg);

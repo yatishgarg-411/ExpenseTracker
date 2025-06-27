@@ -1,142 +1,227 @@
 .transactions-page {
-    padding: 1.5rem;
-  }
-  
-  .header-card,
-  .filters-card {
-    background-color: white;
-    border-radius: 0.75rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e5e7eb;
-    padding: 1.5rem;
-  }
-  
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .header-content {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-  
-  .header-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #111827;
-  }
-  
-  .header-subtitle {
-    color: #6b7280;
-  }
-  
-  .header-totals {
-    font-size: 0.875rem;
-    display: flex;
-    gap: 0.75rem;
-  }
-  
-  .income {
-    color: #059669;
-    font-weight: 600;
-  }
-  
-  .expenses {
-    color: #dc2626;
-    font-weight: 600;
-  }
-  
-  .divider {
-    color: #6b7280;
-  }
-  
-  .search-filter-row {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .search-filter-row {
-      display: flex;
-      flex-direction: row;
-  align-items: center; /* Vertically center the child (.search-input) */
-    }
-  }
-  
-  .search-input {
-    position: relative;
-    flex: 1;
+  padding: 1.5rem;
   display: flex;
-  align-items: center;     /* Vertically center icon and input */
-  max-width: 400px;
-  }
-  
-  .search-input input {
-    width: 100%;
-    padding: 0.5rem 0.75rem 0.5rem 2.5rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.5rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  
-  .search-input input:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-    outline: none;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-  }
-  
-  .icon-left {
-    position: absolute;
-    top: 50%;
-    left: 0.75rem;
-    transform: translateY(-50%);
-    color: #9ca3af;
-    height: 1.25rem;
-    width: 1.25rem;
-  }
-  
-  .filter-button {
-    display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Card Containers */
+.header-card,
+.filters-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+}
+
+/* Header */
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .header-content {
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
-    border: 1px solid #d1d5db;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    background-color: transparent;
-    cursor: pointer;
-    transition: background-color 0.2s;
   }
-  
-  .filter-button:hover {
-    background-color: #f9fafb;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.header-subtitle {
+  color: #6b7280;
+}
+
+.header-totals {
+  font-size: 0.875rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.income {
+  color: #059669;
+  font-weight: 600;
+}
+
+.expenses {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.divider {
+  color: #6b7280;
+}
+
+/* Filters Row */
+.search-filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .search-filter-row {
+    flex-direction: row;
+    align-items: center;
   }
-  
-  .transactions-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .empty-state {
-    background-color: white;
-    border-radius: 0.75rem;
-    border: 1px solid #e5e7eb;
-    padding: 3rem;
-    text-align: center;
-  }
-  
-  .empty-icon {
-    height: 3rem;
-    width: 3rem;
-    color: #d1d5db;
-    margin-bottom: 1rem;
-  }
-  
+}
+
+/* Search Input */
+.search-input {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+}
+
+.search-input input {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 0.95rem;
+}
+
+.search-input input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  outline: none;
+}
+
+.icon-left {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+/* Filter Button & Dropdown */
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-button {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s, border-color 0.2s;
+  font-size: 0.95rem;
+}
+
+.filter-button:hover {
+  background-color: #f3f4f6;
+}
+
+.filter-select {
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  background-color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  outline: none;
+}
+
+/* Transactions List */
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Empty State */
+.empty-state {
+  background-color: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  padding: 3rem;
+  text-align: center;
+}
+
+.empty-icon {
+  height: 3rem;
+  width: 3rem;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.custom-dropdown {
+  position: relative;
+}
+
+.filter-button {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s, border-color 0.2s;
+  font-size: 0.95rem;
+  min-width: 150px;
+  justify-content: space-between;
+}
+
+.filter-button:hover {
+  background-color: #f3f4f6;
+}
+
+.chevron-icon {
+  height: 1rem;
+  width: 1rem;
+  color: #6b7280;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  width: 180px;
+}
+
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f3f4f6;
+}

@@ -9,9 +9,11 @@ import AnalyticsPage from './pages/AnalyticsPage';
 import Layout from './components/Layout';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import { TransactionProvider } from './contexts/TransactionContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
     <TransactionProvider>
       <BrowserRouter>
       <Routes>
@@ -25,7 +27,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     </TransactionProvider>
-    
+    </AuthProvider>
   );
 }
 

@@ -77,18 +77,21 @@
 }
 
 
-
 .input,
 select,
 textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 12px 12px 12px 48px; /* LEFT padding updated from 40px to 48px */
+  padding: 12px 12px 12px 48px; /* icon padding left */
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s;
+}
+input[type="number"],
+input[type="date"] {
+  padding-left: 48px;
 }
 
 
@@ -122,6 +125,12 @@ textarea {
   border-color: #6366f1;
   background-color: #eef2ff;
   color: #4f46e5;
+}
+
+.radio-option input[type="radio"][value="Expense"]:checked + .radio-box {
+  border-color: red;
+  background-color: #ffeeee;
+  color: red;
 }
 
 .radio-title {
@@ -171,5 +180,6 @@ textarea {
 .cancel-btn:hover {
   background-color: #e4e4e4;
 }
+
 
 

@@ -22,6 +22,8 @@ async def login(user:User_Login):
     existing = await users_collection.find_one({'email':user.email})
     if not existing:
         raise HTTPException(status_code=404,detail="User not registered")
+    if user.password != existing['password']:
+        raise HTTPException(status_code=401, detail="Incorrect password")
     token=create_token({'email':existing['email']})
     return{'msg':'Logged in Successfuly','token':token}
 

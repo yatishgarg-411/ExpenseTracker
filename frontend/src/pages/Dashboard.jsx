@@ -4,6 +4,7 @@ import "./Dashboard.css";
 import { Wallet, TrendingUp, TrendingDown, DollarSign} from 'lucide-react';
 import StatCard from '../components/StatCard';
 import TransactionCard from '../components/TransactionCard';
+import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import { useTransaction } from '../contexts/TransactionContext';
@@ -13,20 +14,19 @@ const Dashboard = () => {
 
 
 const navigate = useNavigate();
-
-const {fetchTransactions}=useTransaction();
-const token=localStorage.getItem('token');
+const {
+    transactionDataList,
+    balance,
+    totalIncome,
+    totalExpenses,
+    lastMonthNet,
+  } = useTransaction();
+  
+const {token}=useAuth();
 const [userName, setUserName]=useState('');
-const {transactionDataList}=useTransaction();
 const recentTransactions = transactionDataList.slice(0, 5);
-const {balance,totalIncome,totalExpenses,lastMonthNet}=useTransaction();
 
-useEffect(()=>{
-    if(token){
-        fetchUsername();
-        fetchTransactions();
-    }
-},[])
+
 
 
 const fetchUsername = async() => {
@@ -42,6 +42,11 @@ const fetchUsername = async() => {
 }
 
 
+useEffect(()=>{
+    if(token){
+        fetchUsername();
+    }
+},[token])
 
     return (
         <div className='dashboard-container'>

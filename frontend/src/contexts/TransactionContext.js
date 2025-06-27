@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useMemo, useContext, useEffect, useState } from 'react';
+import { useAuth } from './AuthContext';
 import axios from 'axios';
 
 const TransactionContext = createContext();
@@ -31,7 +32,7 @@ const computeStats = (transactions) => {
 
 export const TransactionProvider = ({ children }) => {
   const [transactionDataList, setTransactionDataList] = useState([]);
-  const token = localStorage.getItem('token');
+  const {token}=useAuth();
 
   const fetchTransactions = async () => {
     try {
@@ -46,12 +47,12 @@ export const TransactionProvider = ({ children }) => {
       console.error("Error fetching transactions:", error);
     }
   };
+  const stats = useMemo(() => computeStats(transactionDataList), [transactionDataList]);
 
-  const stats = computeStats(transactionDataList);
 
   useEffect(() => {
     if (token) fetchTransactions();
-  }, []);
+  }, [token]);
 
   return (
     <TransactionContext.Provider value={{ transactionDataList, fetchTransactions,...stats }}>

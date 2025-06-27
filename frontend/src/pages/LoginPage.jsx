@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {useAuth} from '../contexts/AuthContext'
 import { Wallet, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -8,6 +9,7 @@ import './LoginPage.css';
 
 const LoginPage = () => {
 
+  const {setToken}=useAuth();
   const navigate=useNavigate();
 
   const [loginForm, setLoginForm] = useState({
@@ -23,10 +25,14 @@ const LoginPage = () => {
   };
 
   const handleLogin = async(e) =>{
+    setLoginForm({
+      email: '',
+    password: ''
+    })
     e.preventDefault();
     try{
       const res= await axios.post(`http://localhost:8000/user/login`,loginForm);
-      localStorage.setItem("token", res.data.token);
+      setToken(res.data.token)
       alert(res.data.msg);
       navigate('/dashboard');
       setLoginForm({
@@ -36,6 +42,10 @@ const LoginPage = () => {
       if(error.response && error.response.status===404){
         alert("User not registered!!");
         navigate("/signup")
+      }
+      if(error.response && error.response.status===401){
+        alert("Incorrect Password");
+
       }
     } 
    }
