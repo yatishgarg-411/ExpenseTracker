@@ -61,12 +61,13 @@ This app is designed to help **people of all ages—especially youngsters—easi
 ## 🔗 Live Links
 
 - 🌐 **Frontend Live Demo:**  
-  [Expense Tracker Frontend]([https://your-vercel-url.vercel.app](https://expense-tracker-indol-theta-22.vercel.app/))
+  [Expense Tracker Frontend](https://expense-tracker-indol-theta-22.vercel.app)
 
 - ⚡ **Backend API:**  
-  [Expense Tracker API]((https://expensetracker-q5np.onrender.com))
+  [Expense Tracker API](https://expensetracker-q5np.onrender.com)
 
 - 🧪 **API Docs (Swagger UI):**  
-  [Swagger UI]((https://expensetracker-q5np.onrender.com/docs))
+  [Swagger UI](https://expensetracker-q5np.onrender.com/docs)
+
 
 > 💡 **Tip:** Always wake up the backend by visiting the API link or Swagger UI before using the app if it’s been idle.
