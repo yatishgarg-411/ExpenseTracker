@@ -7,7 +7,7 @@ app=FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['http://localhost:3000', 'https://expense-tracker-flf9bxjl3-yatish-gargs-projects.vercel.app','"https://expense-tracker-git-deploy-v1-yatish-gargs-projects.vercel.app"'],
+    allow_origins=['*'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
